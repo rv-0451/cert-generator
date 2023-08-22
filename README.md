@@ -2,14 +2,14 @@
 
 ## Description
 
-The main purpose of Cert-generator is to provide kubernetes admission webhooks with valid SSL configuration.  
-It makes sense to use it as an init-container for your deployment if your deployment runs webhook server.  
-Cert-generator generates certificate, private key and CA, saves them them into the storage for the webhook server to use and injects webhooks with CA.  
-Storage can be either files (to mount via pv/emptydir) or secret (preffered).
+The main purpose of the cert-generator is to provide Kubernetes admission webhooks with valid SSL configuration.  
+It makes sense to use it as an init-container for your deployment if your deployment runs a webhook server.  
+Cert-generator generates a certificate, private key, and CA, saves them into the storage for the webhook server to use, and injects webhooks with CA.  
+Storage can be either filesystem (to mount via pv/emptydir) or secret (preferred).
 
 ## Flags
 
-See example in the Usage section below.
+See the example in the Usage section below.
 
 | Name | Requirement | Defaults | Description |
 | :---: | :---: | :---: | :---: |
@@ -27,7 +27,7 @@ See example in the Usage section below.
 
 ## Permissions
 
-Cert-generator should be able to create/update secrets at the namespace scope (if secret storage is chosen) and get/update webhooks at the cluster scope:
+The cert-generator should be able to create/update secrets at the namespace scope (if secret storage is chosen) and get/update webhooks at the cluster scope:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -164,7 +164,7 @@ You may run it locally for testing (update flags in Makefile accordingly), just 
 make run
 ```
 
-For full actions see
+For full actions see:
 
 ```bash
 make help
